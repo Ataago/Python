@@ -6,7 +6,7 @@ num = int(input("Enter Number: "))
 def fact(num):
     if num == 0:
         return 1
-    return fact(num -1) * num
+    return fact(num -1) * nu    m
 facto = fact(num)
 print("factorial is : ", facto)
 
