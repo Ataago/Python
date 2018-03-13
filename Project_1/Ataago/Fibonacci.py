@@ -1,4 +1,4 @@
-num = int(input("Enter nth number: "))
+    num = int(input("Enter nth number: "))
 a = 0
 b = 1
 print("Fibonacci Series : ")

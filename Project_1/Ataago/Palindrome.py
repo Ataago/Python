@@ -7,3 +7,4 @@ if list(str) == list(rev_str):
     print("Palindrome")
 else:
     print("Not Palindrome")
+print(rev_str)
