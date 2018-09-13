@@ -1,0 +1,43 @@
+import discord
+from discord.ext import commands
+
+TOKEN = 'NDg3NjMwNjU3MDI4MzU4MTQ1.DnQicw.vSnlKzYQFRcoZuP35ZnekFUQbqQ'
+
+GoBot = commands.Bot(command_prefix = 'go.')
+
+@GoBot.event
+async def on_ready():
+    print('Ready to GO!')
+
+@GoBot.event
+#read a message on disocrd which will be logged in cmd
+async def on_message(message):
+    author = message.author
+    content = message.content
+    print('{} : {}'.format(author,content))
+
+#sending messages
+@GoBot.event
+async def on_message_delete(message):
+    author = message.author
+    content = message.content
+    channel = message.channel
+    await GoBot.send_message(channel,content)
+   
+#ping pong
+@GoBot.event
+async def on_message(message):
+    channel = message.channel
+    if message.content.startswith('go.ping'):
+        await GoBot.send_message(channel,'pong')
+
+    if message.content.startswith('go.echo'):
+        msg = message.content.split()
+        display = ''
+        for word in msg[1:]:
+            display += word
+            display += ' ' 
+        await GoBot.send_message(channel,display)
+
+
+GoBot.run(TOKEN)
